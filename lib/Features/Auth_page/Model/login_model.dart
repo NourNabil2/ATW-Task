@@ -1,11 +1,12 @@
-class AuthErrorModel {
+class AuthMessageModel {
   final String code;
   final String message;
 
-  AuthErrorModel(this.code, this.message);
+  AuthMessageModel(this.code, this.message);
 
   static String getMessage(String code) {
     switch (code) {
+    // Error cases
       case 'user-not-found':
       case 'invalid-credential':
         return "No user found with this email.";
@@ -15,8 +16,11 @@ class AuthErrorModel {
         return "The email address is not valid.";
       case 'email-not-verified':
         return "Your email is not verified. Please check your email.";
+    // Success case
+      case 'login-success':
+        return "Login successful.";
       default:
-        return "Login failed. Please try again later.";
+        return "An unknown error occurred. Please try again later.";
     }
   }
 }

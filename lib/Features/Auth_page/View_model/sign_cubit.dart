@@ -24,19 +24,19 @@ class SignCubit extends Cubit<SignState> {
       if (user != null) {
         if (user.emailVerified) {
           // Emit success state with user data
-          emit(LoginSuccess(user.uid));
+          emit(LoginSuccess(AuthMessageModel.getMessage('login-success')));
         } else {
           // Email not verified
-          emit(LoginError(AuthErrorModel.getMessage('email-not-verified')));
+          emit(LoginError(AuthMessageModel.getMessage('email-not-verified')));
         }
       }
     }).catchError((e) {
       if (e is FirebaseAuthException) {
-        final errorMessage = AuthErrorModel.getMessage(e.code);
+        final errorMessage = AuthMessageModel.getMessage(e.code);
         emit(LoginError(errorMessage));
         log('FirebaseAuthException: ${e.code} - ${e.message}');
       } else {
-        emit(LoginError(AuthErrorModel.getMessage('unknown-error')));
+        emit(LoginError(AuthMessageModel.getMessage('unknown-error')));
         log('Unknown Error: $e');
       }
     });

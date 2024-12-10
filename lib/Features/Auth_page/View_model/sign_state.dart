@@ -1,13 +1,12 @@
 part of 'sign_cubit.dart';
 
-@immutable
 sealed class SignState {}
 
 final class SignInitial extends SignState {}
 
 class LoginSuccess extends SignState {
-  final String userId;
-  LoginSuccess(this.userId);
+  final String message;
+  LoginSuccess(this.message);
 }
 
 class LoadingState extends SignState{}
