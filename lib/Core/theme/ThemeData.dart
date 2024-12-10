@@ -1,7 +1,7 @@
 import 'package:atw_task/Core/utilts/Colors.dart';
 import 'package:flutter/material.dart';
 
-class ThemeApp {
+class ThemeApp{
   static ThemeData getLightThemeData() {
     return ThemeData(
       primaryColor: ColorApp.primaryColor,
