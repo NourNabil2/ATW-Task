@@ -6,7 +6,7 @@ A **A Flutter application demonstrating a **Login Screen** integrated with **Fir
 
 | **Screen**            |**Screenshot**                                    |
 |------------------------|--------------------------------------------------|
-| **Login Screen**        | <img src="screenshot/home.jpg" width="170"/>     |
+| **Login Screen**        | <img src="test/screen.jpg" width="300"/>     |
 
 ## Features
 
