@@ -4,6 +4,8 @@ sealed class SignState {}
 
 final class SignInitial extends SignState {}
 
+final class Changed extends SignState {}
+
 class LoginSuccess extends SignState {
   final String message;
   LoginSuccess(this.message);

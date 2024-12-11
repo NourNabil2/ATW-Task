@@ -8,27 +8,34 @@ class SignCubit extends Cubit<SignState> {
   SignCubit() : super(SignInitial());
   static SignCubit get(context) => BlocProvider.of(context);
 
+  bool obscure = true;
 
-  void userLogin({
+  void changeObscure()
+  {
+    obscure = !obscure;
+    emit(Changed());
+  }
+
+ Future<void> userLogin({
     required String email,
     required String password,
-  }) {
+  }) async {
     emit(LoadingState());
 
-    // Firebase Authentication sign-in
-    FirebaseAuth.instance
+   await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((userCredential) {
       final user = userCredential.user;
-
       if (user != null) {
-        if (user.emailVerified) {
-          // Emit success state with user data
+        try {
           emit(LoginSuccess(AuthMessageModel.getMessage('login-success')));
-        } else {
-          // Email not verified
-          emit(LoginError(AuthMessageModel.getMessage('email-not-verified')));
+        } catch (e) {
+          emit(LoginError(AuthMessageModel.getMessage('data-casting-error')));
+          log('Data Casting Error: $e');
         }
+      } else {
+        // Email not found
+        emit(LoginError(AuthMessageModel.getMessage('email-not-found')));
       }
     }).catchError((e) {
       if (e is FirebaseAuthException) {
@@ -42,21 +49,5 @@ class SignCubit extends Cubit<SignState> {
     });
   }
 
-  Future<void> sendPasswordResetEmail(String? email) async {
-    emit(LoadingResetState());
-    try {
-        // Send password reset email
-        await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
-        emit(SendEmailSuccess("Password reset email has been sent! Check your inbox."));
 
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'invalid-email') {
-        emit(SendEmailFailed("The provided email address is invalid."));
-      } else {
-        emit(SendEmailFailed("An unexpected error occurred: ${e.message}"));
-      }
-    } catch (e) {
-      emit(SendEmailFailed("An unknown error occurred. Please try again later."));
-    }
-  }
 }

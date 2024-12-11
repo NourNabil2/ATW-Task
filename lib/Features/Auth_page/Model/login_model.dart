@@ -14,8 +14,8 @@ class AuthMessageModel {
         return "Incorrect password. Please try again.";
       case 'invalid-email':
         return "The email address is not valid.";
-      case 'email-not-verified':
-        return "Your email is not verified. Please check your email.";
+      case 'email-not-found':
+        return "Your email is not found.";
     // Success case
       case 'login-success':
         return "Login successful.";
