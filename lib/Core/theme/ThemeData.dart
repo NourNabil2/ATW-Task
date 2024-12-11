@@ -9,29 +9,20 @@ class ThemeApp{
       primaryColorDark: Colors.white,
       scaffoldBackgroundColor: ColorApp.mainLight,
       textTheme: const TextTheme(
-        titleSmall: TextStyle(
-          color: Colors.black45,
-          fontFamily: 'Flexo',
-        ),
-        titleLarge: TextStyle(
-          color: ColorApp.blackColor,
-          fontFamily: 'Flexo',
-        ),
-        bodyLarge: TextStyle(
-          color: ColorApp.mainLight,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Flexo',
-        ),
-        bodyMedium: TextStyle(
-          color: ColorApp.blackColor,
-          fontFamily: 'Flexo',
-          fontWeight: FontWeight.bold,
-        ),
         headlineLarge: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 26,
-          fontFamily: 'Flexo',
+          color: ColorApp.blackColor,
+          fontSize: 38,
+          fontWeight: FontWeight.bold
         ),
+        headlineMedium: TextStyle(
+          color: ColorApp.blackColor,
+          fontSize: 28,
+        ),
+        titleSmall: TextStyle(
+          color: ColorApp.mainLight,
+        ),
+        labelLarge: TextStyle(color: ColorApp.blackColor40),
+        labelMedium: TextStyle(color: ColorApp.blackColor,fontSize: 14),
       ),
       colorScheme: ColorScheme.fromSeed(seedColor: ColorApp.primaryColor),
       useMaterial3: true,

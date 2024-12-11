@@ -1,5 +1,4 @@
-class SizeApp
-{
+class SizeApp {
   static double s2 = 2.0;
   static double s5 = 5.0;
   static double s8 = 8.0;
@@ -17,14 +16,19 @@ class SizeApp
   static double defaultBorderRadious = 12.0;
 }
 
-class StringApp{
-  static const noAccount = 'dont\'t have an account?  ';
-  static const forgetPass = 'Forget password?  ';
+class StringApp {
+  static const noAccount = 'Dont\'t have an account?  ';
   static const yesAccount = 'already have an account?  ';
-  static const register = 'SignUp';
-  static const login = 'Login';
+  static const register = 'Register';
+  static const login = 'Sign in';
   static const reset = 'Reset Password';
-  static const sentReset = 'Send email';
+  static const hintEmail = 'Your email';
   static const email = 'Email';
   static const pass = 'Password';
+  static const welcomeMsg = 'Let\'s Sing you in.';
+  static const welcomeMsg2 = 'Welcome back.\nYou\'ve ben missed!';
+}
+
+class EndPoinds {
+  static const backButton = 'assets/icons/backButton.svg';
 }
